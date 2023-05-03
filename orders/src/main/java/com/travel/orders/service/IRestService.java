@@ -2,6 +2,7 @@ package com.travel.orders.service;
 
 import com.travel.orders.dto.OrderDTO.ResponseOrder;
 import com.travel.orders.dto.ValidateUserDTO.ResponseValidateUser;
+import com.travel.orders.model.OrdersModel;
 import com.travel.orders.model.RequestCatalogCharging;
 import org.springframework.http.ResponseEntity;
 
@@ -13,5 +14,6 @@ public interface IRestService {
     ResponseEntity<ResponseOrder> catalogCharging(RequestCatalogCharging requestCatalogCharging);
 
     ResponseValidateUser validateUser(String username_app);
-//    OrdersModel storeOrder(OrdersModel ordersModel);
+
+    void update(OrdersModel ordersModel);
 }

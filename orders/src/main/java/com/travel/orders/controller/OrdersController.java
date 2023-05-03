@@ -20,4 +20,13 @@ public class OrdersController {
     public List<OrdersModel> findAll(){
         return ordersRepository.findAll();
     }
+
+    @PutMapping("/update-order/{id-order}/{id-notification}")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateOrders(@PathVariable("id-order") Integer idOrder,
+                             @PathVariable("id-notification") Integer idNotification){
+//        ordersModel.setId(idOrder);
+        ordersRepository.updateNotification(idOrder, idNotification);
+
+    }
 }

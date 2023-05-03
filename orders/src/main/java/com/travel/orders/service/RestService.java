@@ -7,7 +7,6 @@ import com.travel.orders.dto.ValidateUserDTO.ResponseValidateUser;
 import com.travel.orders.model.OrdersModel;
 import com.travel.orders.model.RequestCatalogCharging;
 import com.travel.orders.repository.OrdersRepository;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -105,13 +104,18 @@ public class RestService implements IRestService{
                 ResponsePayment.class
         );
 
+        ordersModel.setId_payment(responsePayment.getData().getId());
+        ordersRepository.save(ordersModel);
+
 
         return ResponseEntity.ok(response);
-
     }
 
-    public void requestPayment(){
-
+    @Override
+    public void update(OrdersModel ordersModel){
+        ordersRepository.save(ordersModel);
     }
+
+
 }
 
